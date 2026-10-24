@@ -19,7 +19,7 @@ if st.button("Ask AI") and question.strip():
 
         url = (
             f"https://api.cloudflare.com/client/v4/accounts/"
-            f"{account_id}/ai/run/@cf/moonshotai/kimi-k2.7-code"
+            f"{account_id}/ai/run/@cf/meta/llama-3.2-1b-instruct"
         )
 
         headers = {
