@@ -56,11 +56,13 @@ if st.button("Ask AI") and question.strip():
                 st.success(answer)
             else:
                 st.error("The AI returned an unexpected response.")
-        else:
-            st.error(
-                f"Cloudflare returned error {response.status_code}. "
-                "Please check your settings."
-            )
+       else:
+    st.error(f"Cloudflare error: {response.status_code}")
+    try:
+        details = response.json()
+        st.write("Error code:", details.get("errors", []))
+    except ValueError:
+        st.write("Cloudflare did not return JSON.")
 
     except Exception:
         st.error(
